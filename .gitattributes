@@ -1,0 +1,2 @@
+wiki.model.trainables.syn1neg.npy filter=lfs diff=lfs merge=lfs -text
+wiki.model.wv.vectors.npy filter=lfs diff=lfs merge=lfs -text
