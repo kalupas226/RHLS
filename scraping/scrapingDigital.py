@@ -60,11 +60,6 @@ for url in urls:
         for thumbnail in thumbnails:
             image_url = thumbnail.select('img')[0]['src']
             detail_url = root_url + thumbnail.select('a')[0]['href']
-            detail_soup = get_soup(detail_url)
-            detail_tables = detail_soup.find('table', class_='table').select('td')
-            detail_title = detail_tables[1].string
-            detail_contents = detail_tables[3].string
-            insert_sql(detail_title, detail_contents, detail_url, image_url)
             if 'thumbnailChild' in detail_url:
                 child_soup = get_soup(detail_url)
                 child_next_url = check_next_page(child_soup)
@@ -86,6 +81,12 @@ for url in urls:
                     child_next_url = check_next_page(child_soup)
                     child_thumbnails = child_soup.find('ul', class_='thumbnails')
                     child_thumbnails = child_thumbnails.select('div.thumbnail')
+            else:
+                detail_soup = get_soup(detail_url)
+                detail_tables = detail_soup.find('table', class_='table').select('td')
+                detail_title = detail_tables[1].string
+                detail_contents = detail_tables[3].string
+                insert_sql(detail_title, detail_contents, detail_url, image_url)
         thumbnail_soup = get_soup(next_page_url)
         next_page_url = check_next_page(thumbnail_soup)
         thumbnails = thumbnail_soup.find('ul', class_='thumbnails')
