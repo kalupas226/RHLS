@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from urllib import request
 import pymysql.cursors
+import time
 
 def check_next_page(soup):
     next_page = soup.find('a', class_='next')
@@ -55,7 +56,7 @@ for url in urls:
 
     while next_page_url:
         # スクレイピングの感覚を空ける
-        sleep(60)
+        time.sleep(60)
         for thumbnail in thumbnails:
             image_url = thumbnail.select('img')[0]['src']
             detail_url = root_url + thumbnail.select('a')[0]['href']
