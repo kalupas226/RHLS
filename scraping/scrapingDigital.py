@@ -56,7 +56,7 @@ for url in urls:
 
     while next_page_url:
         # スクレイピングの感覚を空ける
-        time.sleep(60)
+        time.sleep(1)
         for thumbnail in thumbnails:
             image_url = thumbnail.select('img')[0]['src']
             detail_url = root_url + thumbnail.select('a')[0]['href']
