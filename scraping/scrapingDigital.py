@@ -91,6 +91,3 @@ for url in urls:
         next_page_url = check_next_page(thumbnail_soup)
         thumbnails = thumbnail_soup.find('ul', class_='thumbnails')
         thumbnails = thumbnails.select('div.thumbnail')
-
-
-
