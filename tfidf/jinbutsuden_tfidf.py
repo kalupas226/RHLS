@@ -18,8 +18,8 @@ sql = "select name, description, id from Jinbutsuden;"
 cursor.execute(sql)
 records = cursor.fetchall()
 for record in records:
-    print record[0]
-    print record[1]
+    print(record[0])
+    print(record[1])
     allText = ""
     if record[0]:
         allText += record[0].encode("utf-8")
@@ -40,8 +40,7 @@ for record in records:
 #     text.append(allText)
 
 txt_num = len(text)
-print 'total texts:', txt_num
-print
+print('total texts:%d' % txt_num)
 
 fv_tf = []                      # ある文書中の単語の出現回数を格納するための配列
 fv_df = {}                      # 単語の出現文書数を格納するためのディクショナリ
@@ -105,22 +104,21 @@ for txt_id, fv in enumerate(fv_tf):
 f = open("tfidf_jinbutsuden.txt", "w")
 i = 0
 for fv,record in zip(fv_tf_idf,records):
-    print 'This is the tf-idf of text', i
-    print txt_id
-    print 'total words:', word_count[i]
+    print('This is the tf-idf of text %d' % i)
+    print(txt_id)
+    print('total words:%d' % word_count[i])
     #f.write(word_count[txt_id])
-    print record[0]
+    print(record[0])
     id = record[2]
     title = record[0].encode("utf-8")
     f.write('\n')
     f.write(str(id) + " " +title)
     f.write('\n')
-    print
     j=0
     count = 0
     top_tfidf = []
     for word, tf_idf in fv:
-        print '%s\ttf-idf:%lf\ttf:%lf\tidf:%lf\tterm_count:%d\tdocument_count:%d' % (word, tf_idf[0], tf_idf[1], tf_idf[2], tf_idf[3], tf_idf[4]) # 左から順に、単語、tf-idf値、tf値、idf値、その文書中の単語の出現回数、その単語の出現文書数(これは単語ごとに同じ値をとる)
+        print('%s\ttf-idf:%lf\ttf:%lf\tidf:%lf\tterm_count:%d\tdocument_count:%d' % (word, tf_idf[0], tf_idf[1], tf_idf[2], tf_idf[3], tf_idf[4])) # 左から順に、単語、tf-idf値、tf値、idf値、その文書中の単語の出現回数、その単語の出現文書数(これは単語ごとに同じ値をとる)
         if count < 5:
             top_tfidf.append(word)
         count += 1
@@ -128,7 +126,6 @@ for fv,record in zip(fv_tf_idf,records):
         f.write('\ttfidf:')
         f.write(str(tf_idf[0]))
         f.write('\n')
-    print
 
     f.write('\n')
 
