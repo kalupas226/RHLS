@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import mysql.connector
 
-connector = mysql.connector.connect(host="localhost", db="Research_System", user="root", passwd="tyogyakuten226", charset="utf8")
+connector = mysql.connector.connect(host="localhost", db="Research_System", user="root", passwd="", charset="utf8")
 cursor = connector.cursor()
 
 # cursor.execute("TRUNCATE TABLE Relation_with_hakodateshishi")
