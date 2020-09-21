@@ -4,7 +4,7 @@ from gensim.models import word2vec
 import mysql.connector
 
 #mysql connection
-connector = mysql.connector.connect(host="localhost", db="Research_System", user="root", passwd="tyogyakuten226", charset="utf8")
+connector = mysql.connector.connect(host="localhost", db="Research_System", user="root", passwd="", charset="utf8")
 cursor = connector.cursor()
 
 cursor.execute("TRUNCATE TABLE Synonym")
