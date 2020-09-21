@@ -10,7 +10,7 @@ if __name__ == "__main__":
     hostname = "localhost"
     dbname = "Research_System"
     username = "root"
-    password = "tyogyakuten226"
+    password = ""
     connector = mysql.connector.connect(host=hostname, db=dbname, user=username, passwd=password, charset="utf8")
     cursor = connector.cursor()
 
