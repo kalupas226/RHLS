@@ -4,7 +4,7 @@ import re
 conn = pymysql.connect(host='localhost',
                        db='Research_System',
                        user='root',
-                       passwd='tyogyakuten226',
+                       passwd='',
                        charset='utf8',
                        cursorclass=pymysql.cursors.DictCursor)
 
