@@ -132,7 +132,7 @@ if __name__ == "__main__":
     hostname = "localhost" #IPアドレス
     dbname = "Research_System" #データベース名
     username = "root" #ユーザ名
-    password = "tyogyakuten226" #パスワード
+    password = "" #パスワード
     connector = mysql.connector.connect(host=hostname, db=dbname, user=username, passwd=password, charset="utf8")
     cursor = connector.cursor()
     removeRecord(cursor)
